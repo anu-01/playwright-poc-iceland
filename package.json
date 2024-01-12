@@ -17,6 +17,7 @@
   "homepage": "https://github.com/anu-01/playwright-poc-iceland#readme",
   "devDependencies": {
     "@playwright/test": "^1.40.1",
-    "@types/node": "^20.11.0"
+    "@types/node": "^20.11.0",
+    "csv-parse": "^5.5.3"
   }
 }

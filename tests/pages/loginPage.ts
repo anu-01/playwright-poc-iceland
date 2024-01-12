@@ -1,5 +1,6 @@
 import {Page, Locator, expect} from "@playwright/test"
 import { BasePage } from "./basePage.ts"
+import {assertText} from "../../utils/AssertionHelpers.ts"
 
 export default class LoginPage extends BasePage{
 
@@ -33,17 +34,19 @@ export default class LoginPage extends BasePage{
         await this.clickLoginBtn();
     }
     async verifyLogin() {
-        const actualUrl = await this.page.url();
+        // await this.page.getByText('Products').isVisible();
+        await assertText(this.page,'xpath=//div[@class="header_secondary_container"]', 'Products');
+        // const actualUrl = await this.page.url();
         // await assertUrl(this.page, 'inventory.html');
-        // await expect(actualUrl).toContain('inventory.html');
-        await expect.poll(async () => {
-            await this.login('', '');
-                    },{          
+        // await expect(this.page.url).toContain('inventory.html');
+    //     await expect.poll(async () => {
+    //         await this.login('', '');
+    //                 },{          
                         
-            message: 'Login was not successful',
-            intervals: [2_000, 4_000, 6_000],
-            timeout: 60000,
-    }).toBeFalsy();               
+    //         message: 'Login was not successful',
+    //         intervals: [2_000, 4_000, 6_000],
+    //         timeout: 60000,
+    // }).toBeFalsy();               
     }
 
 
